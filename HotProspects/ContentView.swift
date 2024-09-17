@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
-//    @State private var users = ["Mayur", "Manu", "Hashit"]
-    @State private var users = [1, 3, 4]
-    @State private var selectedItem = Set<Int>()
     
     var body: some View {
-        List(users, id: \.self, selection: $selectedItem){ user in
-            Text("\(user)")
+        TabView{
+            Text("Tab 1")
+                .tabItem {
+                    Label("item 1", systemImage: "star")
+                }
+            Text("Tab 2")
+                .tabItem {
+                    Label("item 2", systemImage: "star")
+                }
         }
-        
-        EditButton()
-        
-        Text("\(selectedItem)")
     }
 }
 
