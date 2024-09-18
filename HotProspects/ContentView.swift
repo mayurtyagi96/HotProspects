@@ -8,45 +8,44 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var output = "mayur"
+    @State private var backgroundColor = Color.red
+    @State private var showAlert = false
+    
     var body: some View {
-        Text(output)
-            .task {
-                await fetchReadings()
+        VStack{
+            Menu("Label") {
+                  Button("Buttons1") { }
+                Button("Buttons2") { }
+                Button("Buttons3") { }
+                Button("Buttons4sdjhfiusdfjsdjkfdifsdklfkdskfdklsfkjsdkl") { }
             }
-
-    }
-    
-    func fetchReadings() async{
-        let fetchTask = Task {
-            let url = URL(string: "https://hws.dev/readings.json")!
-            let (data,_) = try await URLSession.shared.data(from: url)
-            let readings = try JSONDecoder().decode([Double].self, from: data)
-            return "\(readings.count)"
+            .menuStyle(.button)
+//            .menuIndicator(.visible)
+//            .fixedSize() // Otherwise will be the width of your menu options.
+            Text("Hello World")
+                .padding()
+                .background(backgroundColor)
+            
+            Button("", systemImage: "plus"){
+                showAlert = true
+            }
+            .padding()
+            .contextMenu {
+                Button("Red"){
+                    backgroundColor = .red
+                }
+                
+                Button("Pink"){
+                    backgroundColor = .pink
+                }
+                
+                Button("Green"){
+                    backgroundColor = .green
+                }
+            }
         }
-        
-        let result = await fetchTask.result
-        switch result{
-        case .success(let str):
-            output = str
-        case .failure(let err):
-            output = err.localizedDescription
-        }
-        
+        .alert("Alert", isPresented: $showAlert, actions: {})
     }
-    
-    
-    
-////    --------
-//    var s = Something {
-//        <#code#>
-//    }
-//    
-//    struct Something{
-//        var name: String = "mayur"
-//        var closure: () -> Void
-//    }
-////    ----------
 }
 
 #Preview {
