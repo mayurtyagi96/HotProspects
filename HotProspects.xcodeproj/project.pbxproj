@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A00C5782C99EAB3008926CD /* TabSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A00C5772C99EAB3008926CD /* TabSelection.swift */; };
 		779466352C99C6AA006EEBE2 /* HotProspectsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779466342C99C6AA006EEBE2 /* HotProspectsApp.swift */; };
 		779466372C99C6AA006EEBE2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779466362C99C6AA006EEBE2 /* ContentView.swift */; };
 		779466392C99C6AB006EEBE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 779466382C99C6AB006EEBE2 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A00C5772C99EAB3008926CD /* TabSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabSelection.swift; sourceTree = "<group>"; };
 		779466312C99C6AA006EEBE2 /* HotProspects.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotProspects.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		779466342C99C6AA006EEBE2 /* HotProspectsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotProspectsApp.swift; sourceTree = "<group>"; };
 		779466362C99C6AA006EEBE2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 				779466362C99C6AA006EEBE2 /* ContentView.swift */,
 				779466382C99C6AB006EEBE2 /* Assets.xcassets */,
 				7794663A2C99C6AB006EEBE2 /* Preview Content */,
+				3A00C5772C99EAB3008926CD /* TabSelection.swift */,
 			);
 			path = HotProspects;
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A00C5782C99EAB3008926CD /* TabSelection.swift in Sources */,
 				779466372C99C6AA006EEBE2 /* ContentView.swift in Sources */,
 				779466352C99C6AA006EEBE2 /* HotProspectsApp.swift in Sources */,
 			);
