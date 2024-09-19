@@ -4,47 +4,38 @@
 //
 //  Created by Mayur  on 17/09/24.
 //
-
+import UserNotifications
 import SwiftUI
 
 struct ContentView: View {
-    @State private var backgroundColor = Color.red
-    @State private var showAlert = false
     
     var body: some View {
-        VStack{
-            Menu("Label") {
-                  Button("Buttons1") { }
-                Button("Buttons2") { }
-                Button("Buttons3") { }
-                Button("Buttons4sdjhfiusdfjsdjkfdifsdklfkdskfdklsfkjsdkl") { }
-            }
-            .menuStyle(.button)
-//            .menuIndicator(.visible)
-//            .fixedSize() // Otherwise will be the width of your menu options.
-            Text("Hello World")
-                .padding()
-                .background(backgroundColor)
-            
-            Button("", systemImage: "plus"){
-                showAlert = true
-            }
-            .padding()
-            .contextMenu {
-                Button("Red"){
-                    backgroundColor = .red
+        Button("Ask for permission"){
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                if !success{
+                    print("permission not granted")
                 }
-                
-                Button("Pink"){
-                    backgroundColor = .pink
-                }
-                
-                Button("Green"){
-                    backgroundColor = .green
+                if success{
+                    print("All set")
+                }else if let error{
+                    print(error.localizedDescription)
                 }
             }
         }
-        .alert("Alert", isPresented: $showAlert, actions: {})
+        .padding()
+        
+        Button("Create Notifiaction"){
+            let context = UNMutableNotificationContent()
+            context.title = "Feed the cat"
+            context.subtitle = "It looks hungry"
+            context.sound = .default
+            
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+            
+            let request = UNNotificationRequest(identifier: UUID().uuidString, content: context, trigger: trigger)
+            
+            UNUserNotificationCenter.current().add(request)
+        }
     }
 }
 
